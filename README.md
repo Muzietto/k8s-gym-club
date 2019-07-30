@@ -18,9 +18,16 @@ export DOCKER_CERT_PATH="/home/developer/.minikube/certs"
 - rename HOMEDIR/.kube
 - install minikube.exe and kubectl.exe in /usr/local/bin
 - comment/uncomment lines in .bashrc
+- exit the shell or execute the following commands _in each open shell_:
+  - export KUBE_CONFIG_DEV=""
+  - export KUBECONFIG=""
 
 ### Switching back to office settings
 - rename HOMEDIR/.docker
 - rename HOMEDIR/.kube
 - rename minikube.exe and kubectl.exe in /usr/local/bin
 - comment/uncomment lines in .bashrc
+- exit the shell or execute the following commands _in each open shell_:
+  - export DOCKER_CERT_PATH=""
+  - export DOCKER_HOST=""
+  - export DOCKER_TLS_VERIFY=""
