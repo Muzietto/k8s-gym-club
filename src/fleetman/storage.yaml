@@ -1,0 +1,29 @@
+# WHAT do we want
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec:
+  storageClassName: mylocalstorage
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+
+---
+# HOW we want it implemented
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-storage
+spec:
+  storageClassName: mylocalstorage
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  hostPath:
+    # next two lines refer to a mount on the k8s VM (moved here instead than in mongo-stack.yaml)
+    path: /mnt/some/directory/structure
+    type: DirectoryOrCreate
